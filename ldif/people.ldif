@@ -1,0 +1,115 @@
+version: 1
+
+#dn: dc=ome,dc=local
+#objectClass: top
+#objectClass: dcObject
+#objectClass: organization
+#dc: ome
+#o: ome.local
+#description: OME Local
+
+dn: ou=people,dc=ome,dc=local
+objectClass: organizationalUnit
+ou: people
+
+dn: ou=groups,dc=ome,dc=local
+objectClass: organizationalUnit
+ou: groups
+
+dn: uid=ome01,ou=people,dc=ome,dc=local
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: Ome One
+sn: One
+givenName: Ome
+uid: ome01
+userPassword:: b21lMDE=
+
+dn: uid=ome02,ou=people,dc=ome,dc=local
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: Ome Two
+sn: Two
+givenName: Ome
+uid: ome02
+userPassword:: b21lMDI=
+
+dn: uid=ome03,ou=people,dc=ome,dc=local
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: Ome Three
+sn: Three
+givenName: Ome
+uid: ome03
+userPassword:: b21lMDM=
+
+dn: uid=ome04,ou=people,dc=ome,dc=local
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: Ome Four
+sn: Four
+givenName: Ome
+uid: ome04
+userPassword:: b21lMDQ=
+
+dn: uid=nome01,ou=people,dc=ome,dc=local
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: NotOme One
+sn: One
+givenName: NotOme
+uid: nome01
+userPassword:: bm9tZTAx
+
+dn: uid=nome02,ou=people,dc=ome,dc=local
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: NotOme Two
+sn: Two
+givenName: NotOme
+uid: nome02
+userPassword:: bm9tZTAy
+
+dn: ou=omero,ou=groups,dc=ome,dc=local
+objectClass: organizationalUnit
+objectClass: top
+ou: omero
+
+dn: ou=nonomero,ou=groups,dc=ome,dc=local
+objectClass: organizationalUnit
+objectClass: top
+ou: nonomero
+
+dn: cn=lab01,ou=omero,ou=groups,dc=ome,dc=local
+objectClass: groupOfNames
+objectClass: top
+cn: lab01
+member: uid=ome01,ou=people,dc=ome,dc=local
+member: uid=ome02,ou=people,dc=ome,dc=local
+
+dn: cn=lab02,ou=omero,ou=groups,dc=ome,dc=local
+objectClass: groupOfNames
+objectClass: top
+cn: lab02
+member: uid=ome03,ou=people,dc=ome,dc=local
+member: uid=ome04,ou=people,dc=ome,dc=local
+
+dn: cn=team01,ou=nonomero,ou=groups,dc=ome,dc=local
+objectClass: groupOfNames
+objectClass: top
+cn: team01
+member: uid=nome01,ou=people,dc=ome,dc=local
+member: uid=nome02,ou=people,dc=ome,dc=local
+member: uid=ome01,ou=people,dc=ome,dc=local
