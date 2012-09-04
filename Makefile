@@ -7,8 +7,7 @@ PASSWD?=secret
 ##
 ## Functions
 ##
-LOAD_FILE = ldapadd -H "$(HOST)" -x -D "$(ROOTDN)" -w "$(PASSWD)" -f "ldif/$(1)"
-#LOAD_FILE = ldapadd -Y EXTERNAL -H "$(HOST)" -f "ldif/$(1)"
+LOAD_FILE = ldapadd -H "$(HOST)" -x -D "$(ROOTDN)" -w "$(PASSWD)" -f "$(1)"
 
 ##
 ## Targets
@@ -24,14 +23,14 @@ var/run:
 	mkdir -p $@
 
 start: var/openldap-data var/run
-	"$(SLAPD)" -f conf/slapd.conf -d 10 -h "$(HOST)"
+	"$(SLAPD)" -f conf/slapd.conf -d 255 -h "$(HOST)"
 
 load:
-	$(call LOAD_FILE,memberof.ldif)
-	$(call LOAD_FILE,memberof02.ldif)
-	$(call LOAD_FILE,people.ldif)
+	$(call LOAD_FILE,ldif/people.ldif)
 
+test:
+	ldapsearch -H "$(HOST)" -x -D uid=ome01,ou=people,dc=ome,dc=local -w ome01 -b 'dc=ome,dc=local' ldapcount
 clean:
 	rm -rf var
 
-.PHONY: start stop clean
+.PHONY: start stop test load clean

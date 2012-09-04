@@ -1,12 +1,12 @@
 version: 1
 
-#dn: dc=ome,dc=local
-#objectClass: top
-#objectClass: dcObject
-#objectClass: organization
-#dc: ome
-#o: ome.local
-#description: OME Local
+dn: dc=ome,dc=local
+objectClass: top
+objectClass: dcObject
+objectClass: organization
+dc: ome
+o: ome.local
+description: OME Local
 
 dn: ou=people,dc=ome,dc=local
 objectClass: organizationalUnit
